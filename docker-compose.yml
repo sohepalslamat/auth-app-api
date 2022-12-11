@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  api:
+    container_name: api
+    hostname: api
+    volumes:
+      - ./:/auth-app
+    ports:
+      - 8008:8008
+    build: .
+    restart: always
+    command: >
+     bash -c "python manage.py collectstatic --noinput &&
+              python manage.py runserver 0.0.0.0:8008"
