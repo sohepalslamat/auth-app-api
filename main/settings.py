@@ -67,8 +67,7 @@ DJOSER = {
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 MIDDLEWARE = [
-    "corsheaders.middleware.CorsMiddleware",
-    "django.middleware.common.CommonMiddleware",
+    'corsheaders.middleware.CorsMiddleware', # cors
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -80,12 +79,15 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'main.urls'
 
-CORS_ALLOW_ALL_ORIGINS = True # cors
+CORS_ORIGIN_ALLOW_ALL = True  # CORS
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
-]
+CORS_ALLOW_CREDENTIALS = True
+CORS_ORIGIN_WHITELIST = (
+    # TODO - set this properly for production
+    'http://localhost:3000',
+    'http://127.0.0.1:3000',
+)
+
 
 TEMPLATES = [
     {
