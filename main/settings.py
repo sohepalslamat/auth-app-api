@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-h4)^ys+1@!dle+*p6*sh*nnetnp9#_f%+fa$qourq1onkee1ba
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['auth.v2202107122785158474.goodsrv.de']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -59,7 +59,7 @@ DJOSER = {
     'PASSWORD_RESET_CONFIRM_URL': '#/password/reset/confirm/{uid}/{token}',
     'USERNAME_RESET_CONFIRM_URL': '#/username/reset/confirm/{uid}/{token}',
     'ACTIVATION_URL': '#/activate/{uid}/{token}',
-    'SEND_ACTIVATION_EMAIL': True,
+    'SEND_ACTIVATION_EMAIL': False,
     'SERIALIZERS': {},
     'TOKEN_MODEL': None
 }
@@ -78,6 +78,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'main.urls'
+
+CSRF_TRUSTED_ORIGINS = ['http://localhost','https://*.v2202107122785158474.goodsrv.de','https://*.127.0.0.1']
 
 CORS_ORIGIN_ALLOW_ALL = True  # CORS
 
